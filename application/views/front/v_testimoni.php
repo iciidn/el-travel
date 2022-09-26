@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EL-Travel | Cerita</title>
+    <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'tampilan_web/images/logobrow.png'?>">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/bootstrap.min.css'?>">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/animate.css'?>">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/owl.carousel.min.css'?>">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/themify-icons.css'?>">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/flaticon.css'?>">
+    <!-- fontawesome CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/fontawesome/css/all.min.css'?>">
+    <!-- magnific CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/magnific-popup.css'?>">
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/gijgo.min.css'?>">
+    <!-- niceselect CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/nice-select.css'?>">
+    <!-- slick CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/slick.css'?>">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="<?php echo base_url().'tampilan_web/web2/css/style.css'?>">
+  </head>
+  <?php
+             function limit_words($string, $word_limit){
+                 $words = explode(" ",$string);
+                 return implode(" ",array_splice($words,0,$word_limit));
+             };
+
+         ?>
+  <body>
+     <!--::header part start::-->
+     <header class="main_menu">
+          <div class="sub_menu">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-6 col-sm-12 col-md-6">
+                          <div class="sub_menu_right_content">
+                            <span>Top Travel </span>
+                            <?php
+                                                      foreach ($paket->result_array() as $h) {
+
+                                                          $idpaketf=$h['idpaket'];
+
+                                                          $namapaketf=limit_words($h['nama_paket'],1);
+                                                          $gambarf=$h['gambar'];
+                                                      ?>
+                            <a href=	"<?php echo base_url().'paket_tour/detail_paket/'.$idpaketf;?>"><?php echo  $namapaketf; ?></a>
+                          <?php }; ?>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-sm-12 col-md-6">
+                          <div class="sub_menu_social_icon">
+                              <a href="#"><i class="flaticon-facebook"></i></a>
+                              <a href="#"><i class="flaticon-twitter"></i></a>
+                              <a href="#"><i class="fab fa-whatsapp"></i></a>
+                              <a href="#"><i class="flaticon-instagram"></i></a>
+                             <span><i class="fa fa-phone"></i> +082299369507</a></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="main_menu_iner">
+              <div class="container-fluid">
+                  <div class="row align-items-center ">
+                      <div class="col-lg-12">
+                          <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                              <a class="navbar-brand" href="<?php echo base_url().'welcome'?>"> <img src="<?php echo base_url().'tampilan_web/images/logoel.png'?>" alt="logo"> </a>
+                              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                  aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                              </button>
+
+                              <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                                  id="navbarSupportedContent">
+                                  <?php
+                                 $this->load->view('front/menu');
+                                 ?>
+                              </div>
+
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+    <!-- Header part end-->
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2>Blog Detail</h2>
+                            <p>Home >>> Blog Detail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+                      <?php
+                          $n=$news->row_array();
+                      ?>
+    <!--================Blog Area =================-->
+
+    <section class="blog_area  single-post-area  section_padding">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-8 posts-list">
+                  <div class="single-post">
+                      <div class="feature-img">
+                          <img width="700" height="150"  class="img-fluid" src="<?php echo base_url().'assets/gambars/'.$n['gambar'];?>"  alt="">
+                      </div>
+                      <div class="navigation-top">
+                        Share Media Sosial Anda
+                      <div class="d-sm-flex justify-content-between text-center">
+
+                      <div class="col-sm-4 text-center my-2 my-sm-0">
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                        </ul>  <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
+                      </div>
+
+                      </div>
+                      </div>
+                      <div class="blog_details">
+                          <h2><?php echo $n['judul'];?></h2>
+                          <ul class="blog-info-link mt-3 mb-4">
+                              <li><a href="#"><i class="far fa-user"></i> <?php echo $n['tglpost'];?>, by <?php echo $n['user'];?> </a></li>
+                              <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                          </ul>
+                          <p class="excert">
+                              <?php echo $n['isi'];?>
+                          </p>
+
+                      </div>
+                  </div>
+                  <div class="navigation-top">
+                      <div class="d-sm-flex justify-content-between text-center">
+
+                          <div class="col-sm-4 text-center my-2 my-sm-0">
+                            Share Media Sosial Anda
+                            <ul class="social-icons">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                            </ul>  <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
+                          </div>
+
+                      </div>
+
+                  </div>
+
+
+              </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <form action="#">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder='Cari Berita'
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Cari Paket'">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button"><i class="ti-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="button rounded-0 primary-bg text-white w-100 btn_1"
+                                    type="submit">Cari</button>
+                            </form>
+                        </aside>
+
+
+                                <h3 class="widget_title">Cerita Traveling</h3>
+                                <?php
+                                    foreach ($brt->result_array() as $b) {
+                                        $idberita=$b['idberita'];
+                                        $judul=$b['judul'];
+                                        $isi=$b['isi'];
+                                        $tglpost=$b['tglpost'];
+                                        $gbr=$b['gambar'];
+                                        $user=$b['user'];
+                                ?>
+                        <aside class="single_sidebar_widget popular_post_widget">
+
+                            <div class="media post_item">
+                              <img width="50" height="50" src="<?php echo base_url().'assets/gambars/'.$gbr;?>" alt="" />
+                                <div class="media-body">
+                                    <a href="<?php echo base_url().'berita_post/detail_berita/'.$idberita;?>">
+                                        <h3><?php echo $judul; ?></h3>
+                                    </a>
+                                    <p> <?php echo  $tglpost; ?></p>
+                                </div>
+                            </div>
+                        </aside>
+                        <?php }; ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+
+            <!-- footer part start-->
+
+                		<footer id="colorlib-footer">
+                			<div class="container">
+                				<div class="row row-pb-md">
+                					<div class="col-md-3 colorlib-widget">
+                						<h4>El-Travel Agent</h4>
+                						<p>
+                        Menjadikan penyedia layanan perjalanan yang berkualitas.
+                        Menjalankan jaringan terintegrasi dalam memberikan layanan perjalanan yang menyeluruh secara professional</p>
+                        <h2>Follow Media Sosial Kami</h2>
+                						<p>
+                							<ul class="colorlib-social-icons">
+                								<li><a href="#"><i class="flaticon-facebook"></i></a></li>
+                								<li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                								<li><a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a></li>
+                								<li><a href="#"><i class="flaticon-instagram"></i></a></li>
+                							</ul>
+                						</p>
+                					</div>
+                					<div class="col-md-3 colorlib-widget">
+                						<h4>Information</h4>
+                						<p>
+                							<ul class="colorlib-footer-links">
+                								<li><a href="<?php echo base_url().'welcome'?>"><i class="far fa-bookmark"></i> Home</a></li>
+                								<li><a href="<?php echo base_url().'about'?>"><i class="far fa-bookmark"></i> Tentang El-Travel</a></li>
+                                <li><a href="<?php echo base_url().'paket_tour'?>"><i class="far fa-bookmark"></i> Paket Wisata</a></li>
+                								<li><a href="<?php echo base_url().'berita_post'?>"><i class="far fa-bookmark"></i> Blog Dokumentasi</a></li>
+                								<li><a href="<?php echo base_url().'detail_photo'?>"><i class="far fa-bookmark"></i> Galerry</a></li>
+                								<li><a href="<?php echo base_url().'kontak'?>"><i class="far fa-bookmark"></i> Contact</a></li>
+                								<li><a href="<?php echo base_url().'semua album'?>"><i class="far fa-bookmark"></i> Pendaftaran</a></li>
+                							</ul>
+                						</p>
+                					</div>
+
+                					<div class="col-md-3 colorlib-widget">
+                						<h4>Paket Wisata</h4>
+                            <?php
+                                                      foreach ($paket->result_array() as $h) {
+                                                          $idpaketf=$h['idpaket'];
+                                                          $namapaketf=$h['nama_paket'];
+                                                          $gambarf=$h['gambar'];
+                                                      ?>
+                						<div class="f-blog">
+                							<a href="<?php echo base_url().'paket_tour/detail_paket/'.$idpaketf;?>" class="blog-img">
+                                <img width="200" height="100" src="<?php echo base_url().'assets/gambars/'.$gambarf;?>" alt="" />
+                							</a>
+                							<div class="desc">
+                								<h5><a href="<?php echo base_url().'paket_tour/detail_paket/'.$idpaketf;?>"><?php echo $namapaketf;?></a></h5>
+
+                							</div>
+                						</div>
+                            <?php }; ?>
+                					</div>
+
+
+                					<div class="col-md-3 colorlib-widget">
+                						<h4>Contact Info</h4>
+                						<ul class="colorlib-footer-links">
+                							<li>Ruko Veronez, Gading Serpong Blok CA 24/11,
+                      JL Raya Kelapa Puan Pakulonan Barat,
+                      Kelapa Dua. Tanggerang, Banten 15333.</li>
+                							<li><a href="tel://1234567920"><i class="fas fa-phone"></i> +62 853 1133 5522 <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  +62 853 1133 5522</a></li>
+                							<li><a href="https://mail.google.com/mail/u/0/#inbox"><i class="fas fa-envelope"></i> info@eltravel.com</a></li>
+                							<li><a href="<?php echo base_url().'welcome'?>"><i class="fas fa-map-marked-alt"></i> www.el-travel.com</a></li>
+                						</ul>
+                					</div>
+                				</div>
+                			</div>
+                			<div class="copy">
+                				<div class="container">
+                					<div class="row">
+                						<div class="col-md-12 text-center">
+                							<p>
+                								 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Create &copy;<script>document.write(new Date().getFullYear());</script>&nbsp; by  Rupro
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br>
+                								EL-Travel <a href="<?php echo base_url().'welcome'?>" target="_blank">Tour Travel Hospitalize</a>
+                							</p>
+                						</div>
+                					</div>
+                				</div>
+                			</div>
+                		</footer>
+                <!-- footer part end-->
+
+
+    <!-- jquery plugins here-->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery-1.12.1.min.js'?>"></script>
+    <!-- popper js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/popper.min.js'?>"></script>
+    <!-- bootstrap js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/bootstrap.min.js'?>"></script>
+    <!-- magnific js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery.magnific-popup.js'?>"></script>
+    <!-- swiper js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/owl.carousel.min.js'?>"></script>
+    <!-- masonry js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/masonry.pkgd.js'?>"></script>
+    <!-- masonry js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery.nice-select.min.js'?>"></script>
+    <script src="<?php echo base_url().'tampilan_web/web2/js/gijgo.min.js'?>"></script>
+    <!-- contact js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery.ajaxchimp.min.js'?>"></script>
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery.form.js'?>"></script>
+    <script src="<?php echo base_url().'tampilan_web/web2/js/jquery.validate.min.js'?>"></script>
+    <script src="<?php echo base_url().'tampilan_web/web2/js/mail-script.js'?>"></script>
+    <script src="<?php echo base_url().'tampilan_web/web2/js/contact.js'?>"></script>
+    <!-- custom js -->
+    <script src="<?php echo base_url().'tampilan_web/web2/js/custom.js'?>"></script>
+</body>
+
+</html>
